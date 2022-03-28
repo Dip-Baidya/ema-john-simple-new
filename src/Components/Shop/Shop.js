@@ -20,9 +20,17 @@ const Shop = () => {
             const savedCart = getStoredCart();
             const storedCart = [];
             for (const id in savedCart) {
+                // console.log(id, savedCart[id]);//Print Quantity
+
                 const addedProduct = products.find(product => product.id === id);
-                console.log(id, addedProduct)
-                storedCart.push(addedProduct);
+                if (addedProduct) {
+                    const quantity = savedCart[id];
+                    addedProduct.quantity = quantity;
+                    // console.log(addedProduct) // show quantity attribute
+                    storedCart.push(addedProduct);
+                }
+                // console.log(id, addedProduct)
+
             }
             setCart(storedCart);
         }
