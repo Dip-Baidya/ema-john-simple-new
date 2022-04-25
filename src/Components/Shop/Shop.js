@@ -26,7 +26,7 @@ const Shop = () => {
             for (const id in savedCart) {
                 // console.log(id, savedCart[id]);//Print Quantity
 
-                const addedProduct = products.find(product => product.id === id);
+                const addedProduct = products.find(product => product.id === id);  
                 if (addedProduct) {
                     const quantity = savedCart[id];
                     addedProduct.quantity = quantity;
