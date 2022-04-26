@@ -10,7 +10,6 @@ const useCart = products => {
             const storedCart = [];
             for (const id in savedCart) {
                 // console.log(id, savedCart[id]);//Print Quantity
-
                 const addedProduct = products.find(product => product.id === id);
                 if (addedProduct) {
                     const quantity = savedCart[id];
@@ -19,7 +18,6 @@ const useCart = products => {
                     storedCart.push(addedProduct);
                 }
                 // console.log(id, addedProduct)
-
             }
             setCart(storedCart);
         }
