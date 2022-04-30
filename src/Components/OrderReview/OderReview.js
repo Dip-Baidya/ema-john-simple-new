@@ -3,13 +3,15 @@ import useProducts from '../../Hooks/useProducts';
 import useCart from '../../Hooks/useCart';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import { removeFromDb } from '../../utilities/fakedb';
 
 const OderReview = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useCart(products);
     const handleRemove = id => {
-        const newCart = Cart.filter(product => product.id !== id);
+        const newCart = cart.filter(product => product.id !== id);
         setCart(newCart);
+        removeFromDb(id);
     }
     return (
         <div className="shop-container">
