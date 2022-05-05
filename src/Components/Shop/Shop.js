@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -26,7 +27,7 @@ const Shop = () => {
             for (const id in savedCart) {
                 // console.log(id, savedCart[id]);//Print Quantity
 
-                const addedProduct = products.find(product => product.id === id);  
+                const addedProduct = products.find(product => product.id === id);
                 if (addedProduct) {
                     const quantity = savedCart[id];
                     addedProduct.quantity = quantity;
@@ -51,7 +52,7 @@ const Shop = () => {
 
     const handleSearch = event => {
         const searchValue = event.target.value;
-        
+
         const matchedProducts = products.filter(product => product.name.toLowerCase().includes(searchValue.toLowerCase()));
 
         setDisplaySearchProducts(matchedProducts);
@@ -73,7 +74,11 @@ const Shop = () => {
                     }
                 </div>
                 <div className="cart-container">
-                    <Cart cart={cart}></Cart>
+                    <Cart cart={cart}>
+                        <Link to="/review">
+                            <button className="btn-regular">Review You Order</button>
+                        </Link>
+                    </Cart>
                 </div>
 
             </div>

@@ -16,7 +16,7 @@ const OderReview = () => {
     return (
         <div className="shop-container">
             <div className="product-container">
-                {
+                { 
                     cart.map(product => <ReviewItem
                         id={product.id}
                         product={product}
@@ -25,7 +25,9 @@ const OderReview = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <button className="btn-regular">Place Order</button>
+                </Cart>
             </div>
         </div>
     );
